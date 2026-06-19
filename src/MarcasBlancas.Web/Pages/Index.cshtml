@@ -1,0 +1,42 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Catálogo";
+}
+
+<h2>Calidad y bajos precios</h2>
+<p class="intro">
+    Las marcas blancas pertenecen a supermercados e hipermercados. Su principal
+    ventaja es el menor precio, manteniendo la misma calidad porque las fabrican
+    los mismos productores que las marcas tradicionales.
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Tipo</th>
+            <th>Marca tradicional</th>
+            <th>Marca blanca</th>
+            <th>Ahorro</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var p in Model.Productos)
+    {
+        var porcentaje = Model.Calculadora.CalcularPorcentajeAhorro(p);
+        var esGanga = Model.Calculadora.EsGanga(p);
+        <tr class="@(esGanga ? "ganga" : "")">
+            <td>@p.Nombre</td>
+            <td>@p.Categoria</td>
+            <td>@p.Tipo</td>
+            <td>@p.PrecioMarcaTradicional.ToString("C")</td>
+            <td>@p.PrecioMarcaBlanca.ToString("C")</td>
+            <td><strong>@porcentaje %</strong> @(esGanga ? "(ganga)" : "")</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<p class="leyenda">(ganga) = ahorro igual o superior al 45 %</p>

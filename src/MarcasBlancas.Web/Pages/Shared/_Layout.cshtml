@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Marcas Blancas</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <h1>Marcas Blancas</h1>
+        <nav>
+            <a asp-page="/Index">Catálogo</a>
+            <a asp-page="/Acerca">Acerca de</a>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p>Curso: Calidad y Pruebas de Software - Evaluación T3</p>
+    </footer>
+</body>
+</html>

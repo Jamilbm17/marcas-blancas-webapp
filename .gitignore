@@ -1,0 +1,14 @@
+bin/
+obj/
+publish/
+out/
+
+TestResults/
+*.trx
+
+.vs/
+.vscode/
+*.user
+*.suo
+
+*.log
